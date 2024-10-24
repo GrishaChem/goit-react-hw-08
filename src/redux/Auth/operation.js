@@ -26,3 +26,13 @@ export const login = createAsyncThunk('login', async (credentials, thunkApi) =>
         return thunkApi.rejectWithValue(error.message);
     }
 })
+
+export const logout = createAsyncThunk('logout', async (_, thunkApi) =>
+{
+    try {
+        await goitApi.post('users/logout')
+      
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+    }
+})
