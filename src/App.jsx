@@ -9,6 +9,8 @@ import { nanoid } from "nanoid";
 import { fetchContact } from "./redux/contactsOps.js";
 import { useSelector } from "react-redux";
 import { selectError, selectIsLoading } from "./redux/contactsSlice.js";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout.jsx";
 
 const App = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -16,14 +18,24 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<ContactForm />}></Route>
+          <Route path="/" element={<SearchBox />}></Route>
+          {isLoading && <h2>Loading...</h2>}
+          {Error && <h2>Error...</h2>}
+          <Route path="/" element={<ContactList />}></Route>
+        </Route>
+      </Routes>
+
+      {/* <div>
         <h1>Phonebook</h1>
         <ContactForm />
         <SearchBox />
         {isLoading && <h2>Loading...</h2>}
         {Error && <h2>Error...</h2>}
         <ContactList />
-      </div>
+      </div> */}
     </>
   );
 };
