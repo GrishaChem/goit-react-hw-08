@@ -11,6 +11,11 @@ import { useSelector } from "react-redux";
 import { selectError, selectIsLoading } from "./redux/contactsSlice.js";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import Home from "./pages/HomePage.jsx";
+import ContactsPage from "./pages/ContactsPage.jsx";
+import RegistrationPage from "./pages/RegistrationPage.JSX";
+import LoginPage from "./pages/LoginPage.jsx";
 
 const App = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -20,22 +25,15 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<ContactForm />}></Route>
-          <Route path="/" element={<SearchBox />}></Route>
-          {isLoading && <h2>Loading...</h2>}
-          {Error && <h2>Error...</h2>}
-          <Route path="/" element={<ContactList />}></Route>
+          <Route index element={<Home />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="register" element={<RegistrationPage />} />
+          <Route path="login" element={<LoginPage />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* <div>
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <SearchBox />
-        {isLoading && <h2>Loading...</h2>}
-        {Error && <h2>Error...</h2>}
-        <ContactList />
-      </div> */}
+      <div></div>
     </>
   );
 };

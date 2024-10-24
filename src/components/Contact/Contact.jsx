@@ -9,7 +9,12 @@ const Contact = ({ name, number, contact }) => {
     <div className={s.liI}>
       <p>{name}</p>
       <p>{number}</p>
-      <button onClick={() => dispatch(deleteContact(contact))}>Delete</button>
+      <button
+        className={s.button}
+        onClick={() => dispatch(deleteContact(contact))}
+      >
+        Delete
+      </button>
     </div>
   );
 };
