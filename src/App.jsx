@@ -16,19 +16,49 @@ import Home from "./pages/HomePage.jsx";
 import ContactsPage from "./pages/ContactsPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage.JSX";
 import LoginPage from "./pages/LoginPage.jsx";
+import { useDispatch } from "react-redux";
+import { refresh } from "./redux/Auth/operation.js";
+import { PrivateRoute } from "./components/PrivateRoute.jsx";
+import { RestrictedRoute } from "./components/RestrictedRoute.jsx";
 
 const App = () => {
   const isLoading = useSelector(selectIsLoading);
   const Error = useSelector(selectError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="register" element={<RegistrationPage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                component={<RegistrationPage />}
+                redirectTo={"/contacts"}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo={"/contacts"}
+              />
+            }
+          />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

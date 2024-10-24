@@ -7,8 +7,11 @@ const Contact = ({ name, number, contact }) => {
   const dispatch = useDispatch();
   return (
     <div className={s.liI}>
-      <p>{name}</p>
-      <p>{number}</p>
+      <div className={s.data}>
+        <p>{name}</p>
+        <p>{number}</p>
+      </div>
+
       <button
         className={s.button}
         onClick={() => dispatch(deleteContact(contact))}

@@ -21,16 +21,13 @@ const Header = () => {
         </div>
       )}
       <ul className="flex space-x-4 ">
+        <li>
+          <NavLink to="/contacts" className="hover:text-gray-400 transition">
+            Contacts
+          </NavLink>
+        </li>
         {!isLoggedIn && (
           <>
-            <li>
-              <NavLink
-                to="/contacts"
-                className="hover:text-gray-400 transition"
-              >
-                Contacts
-              </NavLink>
-            </li>
             <li>
               <NavLink
                 to="/register"

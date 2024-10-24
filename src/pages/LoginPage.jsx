@@ -3,10 +3,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/Auth/operation";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const initialValues = {
     email: "",
@@ -18,7 +16,6 @@ const LoginPage = () => {
       .unwrap()
       .then((res) => {
         toast(`Welcome, ${res.user.name}!`);
-        navigate("/");
       })
       .catch(() => {
         toast.error("Invalid password or email");
