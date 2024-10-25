@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { goitApi } from "../auth/operations";
+import { goitApi } from "../rarar/operations";
 
 
 export const fetchContact = createAsyncThunk('fetchContact', async (_, thunkApi) => {
