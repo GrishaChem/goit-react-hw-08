@@ -14,7 +14,7 @@ import Layout from "./components/Layout.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Home from "./pages/HomePage.jsx";
 import ContactsPage from "./pages/ContactsPage.jsx";
-import RegistrationPage from "./pages/RegistrationPage.JSX";
+import RegistrationPage from "./pages/RegistrationPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { useDispatch } from "react-redux";
 import { refresh } from "./redux/Auth/operation.js";
