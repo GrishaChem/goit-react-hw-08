@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUser } from "../../redux/Auth/selectors";
 import s from "../Header/Header.module.css";
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux/Auth/operation";
+import { logout } from "../../redux/auth/operations";
 
 const Header = () => {
   const user = useSelector(selectUser);

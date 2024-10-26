@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import Contact from "../Contact/Contact.jsx";
 import s from "../ContactList/ContactList.module.css";
 import { useSelector } from "react-redux";
-import { selectContacts } from "../../redux/contactsSlice.js";
+import { selectContacts } from "../../redux/contacts/contactsSlice.js";
 import { useDispatch } from "react-redux";
-import { selectFilter } from "../../redux/filtersSlice";
-import { deleteContact, fetchContact } from "../../redux/contactsOps.js";
-import { selectFilteredContacts } from "../../redux/contactsSlice.js";
+import { selectFilter } from "../../redux/contacts/filtersSlice";
+import {
+  deleteContact,
+  fetchContact,
+} from "../../redux/contacts/operations.js";
+import { selectFilteredContacts } from "../../redux/contacts/contactsSlice.js";
 
 const ContactList = () => {
   const dispatch = useDispatch();

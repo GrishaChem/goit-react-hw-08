@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../redux/Auth/operation";
+import { login } from "../redux/auth/operations";
 import toast from "react-hot-toast";
 
 const LoginPage = () => {

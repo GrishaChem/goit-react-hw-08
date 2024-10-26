@@ -6,9 +6,12 @@ import ContactList from "./components/ContactList/ContactList.jsx";
 import SearchBox from "./components/SearchBox/SearchBox.jsx";
 import ContactForm from "./components/ContactForm/ContactForm.jsx";
 import { nanoid } from "nanoid";
-import { fetchContact } from "./redux/contactsOps.js";
+// import { fetchContact } from "./redux/contactsOps.js";
 import { useSelector } from "react-redux";
-import { selectError, selectIsLoading } from "./redux/contactsSlice.js";
+import {
+  selectError,
+  selectIsLoading,
+} from "./redux/contacts/contactsSlice.js";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -17,7 +20,7 @@ import ContactsPage from "./pages/ContactsPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import { useDispatch } from "react-redux";
-import { refresh } from "./redux/Auth/operation.js";
+import { refresh } from "./redux/auth/operations.js";
 import { PrivateRoute } from "./components/PrivateRoute.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute.jsx";
 
