@@ -23,15 +23,21 @@ import { useDispatch } from "react-redux";
 import { refresh } from "./redux/auth/operations.js";
 import { PrivateRoute } from "./components/PrivateRoute.jsx";
 import { RestrictedRoute } from "./components/RestrictedRoute.jsx";
+import { selectIsRefreshing } from "./redux/auth/selectors.js";
 
 const App = () => {
   const isLoading = useSelector(selectIsLoading);
   const Error = useSelector(selectError);
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refresh());
   }, [dispatch]);
+
+  if (!isRefreshing) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
