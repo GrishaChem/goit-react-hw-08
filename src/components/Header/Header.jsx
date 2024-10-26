@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn, selectUser } from "../../redux/Auth/selectors";
+import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import s from "../Header/Header.module.css";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/operations";
