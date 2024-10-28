@@ -8,10 +8,7 @@ import ContactForm from "./components/ContactForm/ContactForm.jsx";
 import { nanoid } from "nanoid";
 // import { fetchContact } from "./redux/contactsOps.js";
 import { useSelector } from "react-redux";
-import {
-  selectError,
-  selectIsLoading,
-} from "./redux/contacts/contactsSlice.js";
+import { selectError, selectIsLoading } from "./redux/contacts/selectors.js";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -35,7 +32,7 @@ const App = () => {
     dispatch(refresh());
   }, [dispatch]);
 
-  if (!isRefreshing) {
+  if (isRefreshing) {
     return <div>Loading...</div>;
   }
 
